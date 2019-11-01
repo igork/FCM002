@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 	private String topic = "igors_channel"; //"news";
 	private String TAG = "FCM002.";
 
+	private static int requestNum;
 
 	private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
 		@Override
@@ -203,8 +204,8 @@ public class MainActivity extends AppCompatActivity {
 		JSONObject jNotification = new JSONObject();
 		JSONObject jData = new JSONObject();
 		try {
-			jNotification.put("title", "Google I/O 2016");
-			jNotification.put("body", "Firebase Cloud Messaging (App) 002");
+			jNotification.put("title", "Message " + requestNum++);
+			jNotification.put("body", "Firebase Cloud Messaging 002");
 			jNotification.put("sound", "default");
 			jNotification.put("badge", "1");
 			jNotification.put("click_action", "OPEN_ACTIVITY_1");
@@ -218,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 			switch(type) {
 				case "tokens":
 					JSONArray ja = new JSONArray();
-					ja.put("c5pBXXsuCN0:APA91bH8nLMt084KpzMrmSWRS2SnKZudyNjtFVxLRG7VFEFk_RgOm-Q5EQr_oOcLbVcCjFH6vIXIyWhST1jdhR8WMatujccY5uy1TE0hkppW_TSnSBiUsH_tRReutEgsmIMmq8fexTmL");
+					//ja.put("c5pBXXsuCN0:APA91bH8nLMt084KpzMrmSWRS2SnKZudyNjtFVxLRG7VFEFk_RgOm-Q5EQr_oOcLbVcCjFH6vIXIyWhST1jdhR8WMatujccY5uy1TE0hkppW_TSnSBiUsH_tRReutEgsmIMmq8fexTmL");
 					ja.put(token);
 					jPayload.put("registration_ids", ja);
 					break;
